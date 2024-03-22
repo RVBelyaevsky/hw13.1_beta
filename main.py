@@ -63,7 +63,7 @@ class Product:
         self.__price = price
         self.quantity = quantity
         self.instances.append(self)
-        self.value = self.__price * self.quantity
+
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.name}, {self.description}, {self.price}, {self.quantity})"
@@ -73,7 +73,7 @@ class Product:
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        return self.value + other.value
+        return self.price * self.quantity + other.price * other.quantity
 
 
     @classmethod
@@ -92,9 +92,9 @@ class Product:
         else:
             self.__price = new_price
 
-'''
-product_1 = Product('nokia', 'good telephone', 5000.0, 100)
-product_2 = Product('sony', 'no good telephone', 2000.0, 10)
+
+product_1 = Product('nokia', 'good telephone', 100.0, 10)
+product_2 = Product('sony', 'no good telephone', 200.0, 2)
 # product_1.price = 0
 # print(product_1.price)
 #
@@ -134,4 +134,4 @@ category_1 = Category('telephones', 'old telephones', products_list)
 print(str(product_1))
 print(str(product_2))
 print(str(category_1))
-print(product_1 + product_2)'''
+print(product_1 + product_2)
