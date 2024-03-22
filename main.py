@@ -13,6 +13,8 @@ class Category:
 
     count_categories = 0
     unique_products = 0
+
+
     def __init__(self, name: str, description: str, products: list):
         self.name = name
         self.description = description
@@ -21,6 +23,20 @@ class Category:
 
         Category.count_categories += 1
         Category.unique_products += len(self.__products)
+
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.name}, {self.description}, {self.products})"
+
+    def __str__(self):
+        return f"{self.name}, количество продуктов: {len(self)} шт."
+
+    def __len__(self):
+        sum_products = 0
+        for i in self.__products:
+            sum_products += i.quantity
+        return sum_products
+
 
     @property
     def products(self):
@@ -32,7 +48,6 @@ class Category:
     def add_product(self, product):
         self.__products.append(product)
         Category.unique_products += 1
-
 
 
 class Product:
@@ -48,6 +63,18 @@ class Product:
         self.__price = price
         self.quantity = quantity
         self.instances.append(self)
+        self.value = self.__price * self.quantity
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.name}, {self.description}, {self.price}, {self.quantity})"
+
+
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        return self.value + other.value
+
 
     @classmethod
     def create_product(cls, new_product: dict):
@@ -65,18 +92,16 @@ class Product:
         else:
             self.__price = new_price
 
-
-
-
-# product_1 = Product('nokia', 'good telephone', 5000.0, 100)
-# product_2 = Product('sony', 'no good telephone', 2000.0, 10)
+'''
+product_1 = Product('nokia', 'good telephone', 5000.0, 100)
+product_2 = Product('sony', 'no good telephone', 2000.0, 10)
 # product_1.price = 0
 # print(product_1.price)
 #
-# products_list = [product_1, product_2]
+products_list = [product_1, product_2]
 # print(products_list)
 #
-# category_1 = Category('telephones', 'old telephones', products_list)
+category_1 = Category('telephones', 'old telephones', products_list)
 # print(category_1)
 #
 # print(category_1.products)
@@ -105,3 +130,8 @@ class Product:
 # print(product_1.instances)
 # product_1.create_product(new_product)
 # print(product_1.instances)
+
+print(str(product_1))
+print(str(product_2))
+print(str(category_1))
+print(product_1 + product_2)'''
