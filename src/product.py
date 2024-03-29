@@ -21,8 +21,9 @@ class Product:
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        return self.price * self.quantity + other.price * other.quantity
-
+        if type(other) == self.__class__:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError("Разные классы складывать нельзя")
 
     @classmethod
     def create_product(cls, new_product: dict):
