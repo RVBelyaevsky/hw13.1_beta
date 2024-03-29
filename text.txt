@@ -145,3 +145,19 @@ smart2 = Smartfone('oppo2', ' no good', 1000.0, 1, 8, ' no premium', 128, 'grey'
 print(smart2.__add__(smart1))
 print(smart2.__add__(prod1))
 
+протестил 15.1 задание 3
+cat1 = Category('some category', 'some description', [])
+prod1 = Product('nokia', 'good telephone', 100.0, 10)
+smart1 = Smartfone('oppo', 'good', 5000.0, 2, 16, 'premium', 256, 'black')
+print(cat1)
+
+cat1.add_product(prod1)
+
+print(cat1)
+class Some():
+    pass
+
+another_prod = Some
+
+cat1.add_product(smart1)
+print(cat1)
