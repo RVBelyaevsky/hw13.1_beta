@@ -137,3 +137,11 @@ class Product:
 # print(product_1 + product_2)
 
 '''
+протестил 15.1 задание 2
+prod1 = Product('nokia', 'good telephone', 100.0, 10)
+smart1 = Smartfone('oppo', 'good', 5000.0, 2, 16, 'premium', 256, 'black')
+smart2 = Smartfone('oppo2', ' no good', 1000.0, 1, 8, ' no premium', 128, 'grey')
+
+print(smart2.__add__(smart1))
+print(smart2.__add__(prod1))
+
