@@ -42,6 +42,6 @@ class Category:
 
     def add_product(self, product):
         if not isinstance(product, Product):
-            raise TypeError('Не возможно добавить этот объект')
+            raise TypeError('Невозможно добавить этот объект')
         self.__products.append(product)
         Category.unique_products += 1
