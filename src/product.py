@@ -1,4 +1,16 @@
-class Product:
+from abc import ABC, abstractmethod
+
+from src.mixin_print_repr import MixinPrintRepr
+
+
+class ProductAbstract(ABC):
+
+    @abstractmethod
+    def __init__(self):
+        pass
+
+
+class Product(MixinPrintRepr, ProductAbstract):
     name: str
     description: str
     price: float
@@ -11,11 +23,10 @@ class Product:
         self.__price = price
         self.quantity = quantity
         self.instances.append(self)
+        super().__init__()
 
-
-    def __repr__(self):
-        return f"{self.__class__.__name__}({self.name}, {self.description}, {self.price}, {self.quantity})"
-
+    # def __repr__(self):
+    #     return f"{self.__class__.__name__}({self.name}, {self.description}, {self.price}, {self.quantity})"
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
@@ -40,3 +51,4 @@ class Product:
             print('цена введена некорректная')
         else:
             self.__price = new_price
+
