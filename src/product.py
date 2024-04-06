@@ -39,6 +39,8 @@ class Product(MixinPrintRepr, ProductAbstract):
     @classmethod
     def create_product(cls, new_product: dict):
         instance = cls(**new_product)
+        if instance.quantity == 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен!")
         return instance
 
     @property

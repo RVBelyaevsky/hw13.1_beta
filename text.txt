@@ -161,3 +161,19 @@ another_prod = Some
 
 cat1.add_product(smart1)
 print(cat1)
+
+протестил 16.1 задание 1
+prod1 = Product('banan', 'yellow', 100, 5)
+prod2 = Product('apple', 'green', 10, 50)
+
+print(prod1)
+print(len(Product.instances))
+
+prod3_dict = {
+        "name": "Samsung Galaxy C23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 0
+      }
+prod3 = Product.create_product(prod3_dict)
+print(len(Product.instances))
