@@ -45,3 +45,12 @@ class Category:
             raise TypeError('Невозможно добавить этот объект')
         self.__products.append(product)
         Category.unique_products += 1
+
+    def average_price(self):
+        try:
+            all_prices = []
+            for product in self.__products:
+                all_prices.append(product.price)
+            return sum(all_prices) / len(all_prices)
+        except ZeroDivisionError:
+            return 0
