@@ -10,6 +10,10 @@ def smartfones():
     return Category("Смартфоны", "Описание категории", [Product("oppo", "good phone", 5000.0, 10),
                                                         Product("oppo2", "no good phone", 2000.0, 5)])
 
+@pytest.fixture()
+def fruits():
+    '''категория для теста fruits'''
+    return Category("fruits", "Описание категории", [])
 
 @pytest.fixture()
 def Iphone_15():
@@ -30,3 +34,9 @@ def test2_init(Iphone_15):
     assert Iphone_15.description == '512GB, Gray space'
     assert Iphone_15.price == 210000.0
     assert Iphone_15.quantity == 8
+
+def test_average_price(smartfones):
+    assert smartfones.average_price() == 3500.0
+
+def test_average_price(fruits):
+    assert fruits.average_price() == 0
