@@ -43,6 +43,8 @@ class Category:
     def add_product(self, product):
         if not isinstance(product, Product):
             raise TypeError('Невозможно добавить этот объект')
+        elif product.quantity == 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен!")
         self.__products.append(product)
         Category.unique_products += 1
 
